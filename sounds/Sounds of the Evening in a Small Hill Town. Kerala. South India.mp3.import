@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bsle6j2asmqgd"
+path="res://.godot/imported/Sounds of the Evening in a Small Hill Town. Kerala. South India.mp3-ab310ec1bc564538acb4a68f7cdd7b0b.mp3str"
+
+[deps]
+
+source_file="res://sounds/Sounds of the Evening in a Small Hill Town. Kerala. South India.mp3"
+dest_files=["res://.godot/imported/Sounds of the Evening in a Small Hill Town. Kerala. South India.mp3-ab310ec1bc564538acb4a68f7cdd7b0b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

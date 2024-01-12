@@ -1,0 +1,90 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxucfkufn66lr"]
+
+[ext_resource type="Script" path="res://shop.gd" id="1_7lqy5"]
+[ext_resource type="Texture2D" uid="uid://dxmr240dtinfs" path="res://icon.svg" id="2_cfqjk"]
+
+[node name="shop" type="Node2D"]
+script = ExtResource("1_7lqy5")
+
+[node name="item1" type="TextureButton" parent="."]
+z_index = 2
+offset_left = 976.0
+offset_top = 555.0
+offset_right = 1104.0
+offset_bottom = 683.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("2_cfqjk")
+metadata/_edit_use_anchors_ = true
+
+[node name="item2" type="TextureButton" parent="."]
+z_index = 2
+offset_left = 901.0
+offset_top = 555.0
+offset_right = 1029.0
+offset_bottom = 683.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("2_cfqjk")
+metadata/_edit_use_anchors_ = true
+
+[node name="item3" type="TextureButton" parent="."]
+z_index = 2
+offset_left = 828.0
+offset_top = 554.0
+offset_right = 956.0
+offset_bottom = 682.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("2_cfqjk")
+metadata/_edit_use_anchors_ = true
+
+[node name="item4" type="TextureButton" parent="."]
+z_index = 2
+offset_left = 979.0
+offset_top = 478.0
+offset_right = 1107.0
+offset_bottom = 606.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("2_cfqjk")
+metadata/_edit_use_anchors_ = true
+
+[node name="item5" type="TextureButton" parent="."]
+z_index = 2
+offset_left = 900.0
+offset_top = 480.0
+offset_right = 1028.0
+offset_bottom = 608.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("2_cfqjk")
+metadata/_edit_use_anchors_ = true
+
+[node name="item6" type="TextureButton" parent="."]
+z_index = 2
+offset_left = 827.0
+offset_top = 477.0
+offset_right = 955.0
+offset_bottom = 605.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("2_cfqjk")
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visibility_layer = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 1137.0
+offset_bottom = 431.0
+metadata/_edit_use_anchors_ = true
+
+[connection signal="button_down" from="item1" to="." method="_on_item_1_button_down"]
+[connection signal="button_up" from="item1" to="." method="_on_item_1_button_up"]
+[connection signal="button_down" from="item2" to="." method="_on_item_2_button_down"]
+[connection signal="button_up" from="item2" to="." method="_on_item_2_button_up"]
+[connection signal="button_down" from="item3" to="." method="_on_item_3_button_down"]
+[connection signal="button_up" from="item3" to="." method="_on_item_3_button_up"]
+[connection signal="button_down" from="item4" to="." method="_on_item_4_button_down"]
+[connection signal="button_up" from="item4" to="." method="_on_item_4_button_up"]
+[connection signal="button_down" from="item5" to="." method="_on_item_5_button_down"]
+[connection signal="button_up" from="item5" to="." method="_on_item_5_button_up"]
+[connection signal="button_down" from="item6" to="." method="_on_item_6_button_down"]
+[connection signal="button_up" from="item6" to="." method="_on_item_6_button_up"]
+[connection signal="mouse_entered" from="ColorRect" to="." method="_on_color_rect_mouse_entered"]
+[connection signal="mouse_exited" from="ColorRect" to="." method="_on_color_rect_mouse_exited"]

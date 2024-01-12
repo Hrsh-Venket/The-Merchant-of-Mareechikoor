@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://dcy4e3hnrycwj"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_qby8v"]
+[ext_resource type="Texture2D" uid="uid://c5m8ocp7wyilv" path="res://character_icons/auntie-1.png" id="3_a2tlb"]
+[ext_resource type="Script" path="res://Auntie-1.gd" id="3_es0v6"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_qby8v")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 60.0
+
+[node name="Label" type="Label" parent="."]
+visible = false
+offset_left = 519.0
+offset_top = 214.0
+offset_right = 566.0
+offset_bottom = 240.0
+scale = Vector2(4, 4)
+text = "AHHH"
+
+[node name="Auntie-1" type="Sprite2D" parent="."]
+position = Vector2(105, 369)
+scale = Vector2(1.12695, 1.08594)
+texture = ExtResource("3_a2tlb")
+script = ExtResource("3_es0v6")

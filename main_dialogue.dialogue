@@ -1,0 +1,830 @@
+~ Week_start
+Week {{week_num}}\nTotal savings {{total_savings}} rupees
+
+=> END
+
+~ Week_end
+End of Week {{week_num}}\nTotal earnings\: {{week_earnings}} rupees\nTotal savings\: {{total_savings}} rupees\n
+
+=> END
+
+~ Game_start
+
+Welcome to Mareechikoor, District Ernakulam, Kerala (Population 2,598) (press space to continue)
+You play as Raghavan (although people call you Komban), a 46 year old shopkeeper running a store in the town's main junction. Your household consists of your 17 year old son Unni and your wife Indulekha. 
+
+You have run your shop with your late father for the last 19 years, and until recently business had been going well. 
+
+3 months ago, a young man named Rahula opened up a modern new store in town. Since then business has been slow moving. You have had to dip into your savings, spending money you were saving up for Unni's college fees. With your son coming of age, you have a fresh resolution to outcompete Rahula, manage your store smartly and make back what you need.
+
+It has been your dream that someone in your family go to college and with Unni coming of age, you are anxious to save up. 
+
+Your objective is to outcompete Rahula by helping your customers as best as you can... and taking any opportunities that may help you profit.
+
+=> END 
+
+~ tutorial_interaction
+
+do emit(generic1enter)
+
+Ah look! Here's your first customer!
+
+Customer enters
+Customer 1: Komban cheta, I need half kg rice and a chikki please.
+set item1given = false
+set item2given = false
+set item3given = false
+set item4given = false
+set item5given = false
+set item6given = false
+Drag the items from your inventory to give to your customer.
+go to the next dialogue once you have given them
+if ((item1given == false) and (item2given == false) and (item3given == false) and (item4given == true) and (item5given == false) and (item6given == true)):
+	Customer 1: Thank you! 
+	set item1given = false
+	set item2given = false
+	set item3given = false
+	set item4given = false
+	set item5given = false
+	set item6given = false
+	do emit(tutorial_passed)
+	Customer 1: By the way, the mangoes on my tree have ripened, you should come by in the evening and take some for your son.
+	- Sure!
+		You: Sure, thank you.
+		Customer 1: See you later!
+	- Nah..
+		You: Uhh. I'd rather not
+		Customer 1: Oh... OK then. Bye
+else:
+	Why don't you try again? Make sure you only drag the correct items
+	=> tutorial_interaction
+
+do emit(generic1exit)
+
+=> END
+
+
+~ interaction1
+
+do emit(thampuranenter)
+Thampuran enters
+Thampuran: Hey Raghavan, how's your business running these days? Staying afloat, I hope?
+
+- You: "No problems!"
+
+	You: "Of course Thampuran, it's going well as always!"
+	Thampuran: Glad to hear that! And how old is little Unni? 16?
+	You: Yeah, he's turning 17 soon.. they grow up so fast! I remember the little baby who I had to feed by hand like it was yesterday.. now he thinks he's all grown up and won't listen to us.
+	Thampuran: Even we were like that once! My daughter Malu also was a real handful at that age.. they'll mellow out when they get a bit older.
+	You: Speakingn of which, how has Malu been? I've heard she got a job?
+	Thampuran: Yeah, at a big investment banking place! She may have to move to Bangalore soon.. I don't know what I'll do without her around.
+	You: Unni is also almost at that age, he's saying he wants to move to Kochi to study and stay in a PG there!
+	Thampuran: I suppose this is inevitable..
+	You: Did you need anything?
+	Thampuran: No, no! Just thought I'd drop by, it's been a while since we spoke. But now that you mention it, give me some chikki.
+	give him a chikki
+	if ((item1given == false) and (item2given == false) and (item3given == false) and (item4given == false) and (item5given == false) and (item6given == true)):
+		Thampuran: See you later!
+		num_cust += 1
+		set item1given = false
+		set item2given = false
+		set item3given = false
+		set item4given = false
+		set item5given = false
+		set item6given = false
+		set num_cust += 1
+	else:
+		Thampuran: This isn't what I asked for! OK, in a rush, need to go!
+
+- You: "A bit.."
+
+	You: "There's been a bit of a slump lately.."
+	Thampuran: Hope it's not too serious?
+	You: No, but I think people are just attracted to that new shop..
+	Thampuran: Of course, people will always go for something new and shiny, but they'll come to realise your value in a couple of weeks.
+	Thampuran: Besides, the owner is a great fellow! I've met him a few times and he seems to have a good mind and a kind heart.. not the type to be ruthless.
+	You: That's good, but you know how these bhais are.. 
+	Thampuran: Nonsense! He's a good man. Anyway, how's little Unni doing? He's 16 now, right?
+	You: Yeah, he's turning 17 soon.. they grow up so fast! I remember the little baby I used to feed by hand like it was yesterday.. now he thinks he's all grown up and won't listen to us.
+	Thampuran: Even we were like that once! You know, my daughter Malu also was a real handful at that age.. they'll mellow out when they get a bit older.
+	You: How has Malu been? I've heard she got a job?
+	Thampuran: Yeah, at some big investment banking place! She may have to move to Bangalore.. I don't know what I'll do without her at home.
+	You: Unni is also almost at that age, he's saying he wants to move to Kochi to study and stay in a PG there!
+	Thampuran: I suppose this is inevitable..
+	You: Did you need anything?
+	Thampuran: No, no! Just thought I'd drop by, it's been a while since we spoke. But now that you mention it, give me some chikki.
+	give him a chikki
+	if ((item1given == false) and (item2given == false) and (item3given == false) and (item4given == false) and (item5given == false) and (item6given == true)):
+		Thampuran: See you later!
+		set item1given = false
+		set item2given = false
+		set item3given = false
+		set item4given = false
+		set item5given = false
+		set item6given = false
+		set num_cust += 1
+	else:
+		Thampuran: This isn't what I asked for! OK.. never mind... I'm in a rush, I need to go!
+do emit(thampuranexit)
+
+=> END
+
+~ regular1
+do emit(generic2enter)
+Regular customer: Hey Komba..
+You: A kilogram of large bananas, 2 cigarettes, and half a kilogram of rice, right? As always?
+Regular customer: Yeah..
+You: give him his items
+if ((item1given == true) and (item2given == true) and (item3given == false) and (item4given == true) and (item5given == false) and (item6given == false)):
+	You: You know, if you buy larger amounts of rice, bananas and cigarettes, you won'thave to come here so often?
+	set item1given = false
+	set item2given = false
+	set item3given = false
+	set item4given = false
+	set item5given = false
+	set item6given = false
+	set num_cust += 1
+	Regular customer: But then you would feel lonely!
+	You: *Laughing* Okay, okay, see you later!
+else:
+	Regular customer: Pfft. What's going on Komba? You should remember my order by now!
+do emit(generic2exit)
+=> END
+
+~ interaction2
+do emit(coupleenter)
+
+Maithree: Hey Komba! How's business running these days? 
+Doothan: You should be careful! The bhai who runs that new shop may try to drive you out by any means possible. Those bastards are a cunning bunch.
+Maithree: Shush! He's a hard-working man who has earned what he has. 
+Doothan: Hard working, my foot! He must have conned someone or something like that- you know how these bhais operate.
+- Agree with Doothan 
+	set racism += 10
+	You: "Yeah I heard he had to run away from the last town he was in because he was creating a nuisance there"
+- Stay silent 
+	set racism += 5
+Maithree: People will say things.. you shouldn't believe everything.        
+- REPLY TO MAITHREE
+	You: "Yeah, business has gone down a bit..heard some people say the shop is quite nice" 
+	set racism += 5
+	Doothan: Right now people are attracted there by the glass window and AC.. sooner or later they'll realise he's a cheat. Anyway, we have to go now, see you!
+- Stay silent
+
+do emit(dhexit)
+do emit(mthexit)
+=> END
+
+
+~ interaction3
+do emit(butcherenter)
+Butcher enters
+You: Hey, what brings you over to this side of town? 
+Butcher: Komba, that bhai has set uphis shiny new shop right next to mine. He gives me dirty looks because I sell beef. 
+Butcher: No one's forcing him to buy it! What''s his problem?
+you: Well it's how you earn a living after all.
+butcher: I know, but now I feel uncomfortable buying anything from him.
+- Talk about it further
+	do emit(butch)
+	You: Hmmm he's looking down on our food habits in our own town.
+	set racism += 5
+	butcher: Exactly! Anyway, I need some rice and coconut oil please. 
+- Calm him down
+	You: Oh let it go cheta.
+	butcher: Yeah you're right. Anyway, I need some rice and coconut oil please.
+	
+you: give the butcher what he needs
+if ((item1given == false) and (item2given == false) and (item3given == true) and (item4given == true) and (item5given == false) and (item6given == false)):
+	butcher: Thanks! See you later
+	set item1given = false
+	set item2given = false
+	set item3given = false
+	set item4given = false
+	set item5given = false
+	set item6given = false
+	set num_cust += 1
+else:
+	butcher: Ayyo, it seems neither shopkeeper in this town likes me!
+do emit(butcherexit)
+
+=> END
+
+~ interaction4
+do emit(sk1enter)
+Schoolkid: Uncle, uncle, do you have a football jersey?
+You: Football jersey? I think you'll have to go to the bazaar for that.
+You: Why do you guys need one suddenly?
+Schoolkid: They've recently opened a new football field at school!
+Schoolkid: We're all happy because now we don't have to get mud all over our clothes when we play.
+You: When did this happen?
+Schoolkid: Last week! 
+You: Hmmm..
+do emit(sk1exit)
+=> END
+
+~ interaction5
+
+do emit(dhenter)
+Doothan enters
+Doothan: Hey Komba. Need some bananas.
+you: give Dhootan what he wants
+if ((item1given == true) and (item2given == false) and (item3given == false) and (item4given == false) and (item5given == false) and (item6given == false)):
+	Dhootan: Thanks Komba! Also I wanted to tel you something!
+	set item1given = false
+	set item2given = false
+	set item3given = false
+	set item4given = false
+	set item5given = false
+	set item6given = false
+	set num_cust += 1
+else:
+	(Dhootan will realise when he gets home that he didn't get bananas :/)
+Doothan: The Bhai has asked me to fix the electrical wiring in his house. Apparently he is calling the Thampuran for lunch.
+- Find out why
+	set racism += 5
+	You: What is he doing that for?
+	Doothan: It must be to build influence in the town! First he donates money for a football field and now this.
+	You: Maybe he's trying to be charitable?
+	Doothan: Charitable? My foot! He's just trying to suck up to the Thampuran for more social status.
+	you: Isn't the Thampuran a strict vegetarian? 
+	Doothan: Yes he is. Everyone knows this, why do you have to bring it up?
+	You: Ahh, nothing.
+	Doothan: No, I know it's something. Tell me!
+	You: Don't you think it would be a shame if, somehow, the Thampuran were to find meat in his meal?
+	Doothan: You can't mean...
+	You: I'm just saying that it might be really bad for the bhai if the Thampuran were to be fed meat. 
+	Doothan: It would be a shame, wouldn't it..?
+	You: Sure it would!
+	Doothan: Someone needs to put him back in his place, it's about time.
+
+- Drop the conversation
+	You: Ohh, good for him.
+	Doothan: Yeah, i guess (leaves)
+	do emit(good_guy)
+do emit(dhexit)
+=> END
+ 
+
+~ interaction6
+
+do emit(aunty1enter)
+
+Aunty 1: Hey Komba, give me a kilogram of small bananas and 250 ml of coconut oil
+You: give aunty what she wants
+if ((item1given == true) and (item2given == false) and (item3given == true) and (item4given == false) and (item5given == false) and (item6given == false)):
+	Aunty 1: Thanks! 
+	set item1given = false
+	set item2given = false
+	set item3given = false
+	set item4given = false
+	set item5given = false
+	set item6given = false
+	set num_cust += 1
+else:
+	Aunty 1: Ayyo, you men can't do anything correctly? Let me take it myself.... Anyway
+	
+Aunty 1: I hope your business hasn't been suffering because of the bhai's shop?
+- You: "Not at all!"
+	Aunty 1: Glad to hear that.. I personally will only come here.
+	Aunty 1: We should be sure to stick together, god knows that those people always do..
+	Aunty 1: Even though he's above 30, he's still unmarried, you know! What must that say about him?
+	Aunty 1: Oh and did you know he speaks malyalam very fluently. He must have learnt it to swindle us Malyalis
+	Aunty 1: Not just that, but an illegal immigrant.. I hope our children won't face difficulties from people like him.
+	- You: "He's an illegal immigrant?" 
+		set racism += 10
+		Aunty 1: More than half of them are.. I'll send you the proof on WhatsApp later.	
+		Aunty 1: Anyway I have to get going.. stay safe!
+	- Stay silent 
+		set racism += 5
+		Aunty 1: Anyway I have to get going.. stay safe!ve)
+- You: "Yeah, a bit.."
+	Aunty 1: It must be the doing of that bhai.. he'll try to drive you out of business.
+	Aunty 1: Even though he's above 30, he's still unmarried, you know! What must that say about him?
+	Aunty 1: Oh and did you know he speaks malyalam very fluently. He must have learnt it to swindle us Malyalis
+	Aunty 1: Not just that, but an illegal immigrant.. I hope our children won't face difficulties from people like him.
+	- You: He's an illegal immigrant? 
+		set racism += 10
+		Aunty 1: More than half of them are.. I'll send you the proof on WhatsApp later.
+		Aunty 1: Anyway I have to get going.. stay safe!
+do emit(aunty1exit)
+
+=> END
+
+
+~ interaction7
+do emit(aunty2enter)
+Auntie 2: Komban, a litre of coconut oil, and a packet of cigarettes!
+You: give aunty what she wants (she's scary when she is mad)
+if ((item1given == false) and (item2given == true) and (item3given == true) and (item4given == false) and (item5given == false) and (item6given == false)):
+	Auntie 2: Thanks ma!
+	set item1given = false
+	set item2given = false
+	set item3given = false
+	set item4given = false
+	set item5given = false
+	set item6given = false
+	set num_cust += 1
+else:
+	Auntie 1: I swear Komba! If you also say something! I've been telling my husband, it's not an addictioon!
+	Auntie 2: Anyway, if you give it to me for free, I have something you may want to hear
+Auntie 2: You know, I heard something quite interesting about your business competitor.. do you want to know?
+- You: Yes!
+	set racism += 15
+	You: Yeah, do tell.
+	Auntie 2: I met Sakshi today, you know, the one who works in Thampuran's garden? She told me something interesting..
+	You: Go on, go on..
+	Auntie 2: Apparently that bhai has been going to Thampuran's house very often.
+	You: So what? Thampuran calls most people to have lunch with him at least once..
+	Auntie 2: This is more than that! He goes over at least once a week! 
+	Auntie 2: Apparently Thampuran loves listening to his stories about how he became such a big man.. they must be dreadful, violent ones..
+	Auntie 2: But anyway, Sakshi swears that she's even seen him visiting the house at night.. sometimes through a back door.
+	Auntie 2: You know his Malu is such a wilful girl.. won't listen to her father..
+	Auntie 2: And that bhai isn't tied down to anyone either.. although it's not like that would stop him..
+	You: What are you saying?
+	Auntie 2: You know what I'm saying! The two of them are playing together!
+	You: You don't mean?
+	Auntie 2: That's exactly what i mean! He's shooting his gun in her! 
+	Auntie 2: They're writhing about like a snake with two heads!
+	You: This can't be true!
+	Auntie 2: Sakshi swears it's true.. that man must have taken advantage of the poor girl's rebelliousness for his own satisfaction.
+	You: Poor Malu.. i hope she finds her head soon.
+	Auntie 2: Her father better marry her off to a nice boy soon! What was he thinking, letting her study so far away in Chennai! She must have gotten some bad ideas in her head there.
+	You: Someone should show that man his place.
+	Auntie 2: He will reap his own karma.
+	Auntie 2: Oh, it's quite late! I better get going.
+	
+- You: No! 
+	You: No, I don't have time to listen to rumours.
+	Auntie 2: Sure, mr. High-and-mighty.. hmph!
+
+do emit(aunty2exit)
+=> END
+
+
+~ interaction8
+do emit(mthenter)
+Maithree: Hello Komba, give me a chikki and some chewing gum
+You: give Maithree what she wants
+if ((item1given == false) and (item2given == false) and (item3given == false) and (item4given == false) and (item5given == true) and (item6given == true)):
+	Maithree: Thanks Komba!
+	Maithree: Don't tell anyone, but these are to help Dhootan with his smoking trouble
+	set item1given = false
+	set item2given = false
+	set item3given = false
+	set item4given = false
+	set item5given = false
+	set item6given = false
+	set num_cust += 1
+else: 
+	Maithree: Geez komba, how long have you been doing this job?
+Maithree: Anyway, how are you feeling fine?
+You: Of course, why do you ask?
+Maithree: Your face looks very worn.
+You: Nothing, nothing. I must have just woken up on the wrong side of the bed today.
+Maithree: As long as that's it.. see you later!
+You: see you!
+do emit(mthexit)
+=> END
+
+
+~ interaction9
+do emit(northenter)
+Customer: Bhaisaab, sau gram cheeni aur chaar tamatar. (brother, 100 grams of sugar and four tomatoes)... you don't speak Hindi.
+- Give him something
+	set racism +=15
+	drag something from your inventory
+	set item1given = false
+	set item2given = false
+	set item3given = false
+	set item4given = false
+	set item5given = false
+	set item6given = false
+	Customer: Arre, ye kya hai! Tumne chawal aur tel diya! (What is this! You've given me rice and oil!)
+	You: I don't know Hindi! Mera.. Hindi.. nahin!
+	Customer: Theek hai yaar, kahin aur chalein. (Alright man, I'll go elsewhere.)
+	*Customer leaves*
+	You: How does this man have the audacity to come to our state and speak in their language?
+
+- Ask him to repeat himself
+	set racism += 15
+	You: What did you say?
+	Customer: Sau gram cheeni, chaar tamatar. (100 grams of sugar, four tomatoes.)
+	You: I don't know Hindi! Mera.. Hindi.. nahin!
+	Customer: Theek hai yaar, kahin aur chalein. (Alright man, I'll go elsewhere.)
+	*Customer leaves*
+	You: How does this man have the audacity to come to our state and speak in their language?
+do emit(northexit)
+=> END
+
+~ interaction10
+do emit(dhenter)
+Doothan: Hey Komba.. give me a cigarette.
+if ((item1given == false) and (item2given == true) and (item3given == false) and (item4given == false) and (item5given == false) and (item6given == false)):
+	set item1given = false
+	set item2given = false
+	set item3given = false
+	set item4given = false
+	set item5given = false
+	set item6given = false
+	set num_cust += 1
+else:
+	Dhootan: You too? I can't take this man.
+You: Maithree still thinks you've quit?
+Doothan: She won't understand why a man needs this from time to time.
+Doothan: By the way, I ran into that bhai earlier today! 
+You: What happened?
+Doothan: Nothing, we just both happened to be at the same tea shop.
+Doothan: But he speaks Malayalam quite well! He was joking with some of the regulars there.
+Doothan: Apparently he picked it up over the years while he was working as a labourer here.
+- You: Compliment his skill. 
+	You: Isn't that good? At least he doesn't expect us to learn his language.
+	Doothan: Are you kidding? He must have learnt it to scam our people more efficiently!
+	Doothan: Think about it! The only reason he could have had to learn it so well is to fool our people!
+	You: I never thought of it like that..
+	Doothan: You're too kind and trusting, that's your problem.
+
+- You: Show suspicion. 
+	set racism += 15
+	You: Why would he learn the language when most of them don't bother?
+	Doothan: That's what I was thinking! He must have learnt it in order to scam our people!
+	You: That must be it! He's trying to outwardly seem like us to take us down from the inside.
+	Doothan: Exactly my point! We should be wary of him..
+
+Doothan: Anyway, I have to go. Give me a chewing gum.
+if ((item1given == false) and (item2given == false) and (item3given == false) and (item4given == false) and (item5given == true) and (item6given == false)):
+	set item1given = false
+	set item2given = false
+	set item3given = false
+	set item4given = false
+	set item5given = false
+	set item6given = false
+	set num_cust += 1
+
+You: Maithree still thinks you've quit?
+Doothan: Bye!
+do emit(dhexit)
+=> END
+
+~ interaction11
+
+Dialog: You see a commotion in the town square. Several labourers appear to be working on something.
+Dialog: One of the panchayat members approaches your shop.
+do emit(pncenter)
+Panchayat Member: Cheta, a packet of cigarettes please.
+You: give him the cigarettes
+if ((item1given == false) and (item2given == true) and (item3given == false) and (item4given == false) and (item5given == false) and (item6given == false)):
+	Panchayat Member: Thanks!
+	set item1given = false
+	set item2given = false
+	set item3given = false
+	set item4given = false
+	set item5given = false
+	set item6given = false
+	set num_cust += 1
+You: What work is going on at the junction?
+Panchayat Member: Oh, the old signboard welcoming people to town had rusted badly, we finally got around to replacing it.
+You: That's great! But this new board seems larger than the previous one..
+Panchayat Member: We had decided that we'd also add a welcome message in Hindi, besides the ones in English and Malayalam to be more inclusive of the new migrants.
+- Express enthusiasm 
+	You: That's amazing, I think it would save a lot of confusion!
+	Panchayat Member: I'm glad you're on board! Some people aren't too fond of it..
+- Express disagreement 
+	You: I don't mean to overstep but why do these things? These bhais have come to our town. They should learn our language!
+	Panchayat Member: Of course, we're also planning to establish Malayalam classes for them soon.
+	Panchayat Member: This board is just for people who may have just arrived.
+	Panchayat Member: We should make some concessions for them if we're using their labour.
+do emit(pncexit)
+=> END
+
+
+~ interaction12
+do emit(butcherenter)
+Butcher enters
+Butcher: Today that bhai came over to talk to me. 
+You: What happened?
+Butcher: He claimed that the smell of my meat drives away his customers! 
+- Take action.
+	You: we have to do something about this!  
+	Butcher: What can I even do? With the amount of influence he has, I may end up having to move my shop away.. 
+	you: You've been around for 20 years, but you'll roll over this easily?
+	Butcher: It's too draining to deal with some problem or another everyday. I just want to live peacefully.
+	you: Back in the day if we had such problems brother, you know we would have taken matters in our hands.
+	butcher: Ha! Nobody bossed us around then.
+	- Escalate
+		you: What, are you not man enough to show him who is still the boss?
+		butcher: Hmmm you're right. 
+		you: You must have thought of something.
+		Butcher: I honestly don't know what to do.
+		you: He can't stand the beef, you said?
+		butcher: Ha! I've got an idea! If he dares complain about our food in our land...
+		you: What will you do?
+		butcher: You'll see. Let's just say I'll bring our culture right to his shop.
+		Butcher: Anyway, I better get going, nobody is at the shop. (leaves)
+	- Calm him down
+		do emit(good_guy)
+		You: Those were the days.. it's a pity they've gone by.
+		Butcher: If I were young, you would have seen what I could have done to him.. bah!
+		do e
+- Caution him
+	do emit(good_guy)
+	You: Dont cause any trouble, brother.
+	Butcher: Komba, you have gone all soft. ugh! (leaves)
+do emit(butcherexit)
+=> END
+
+
+~ interaction13
+
+do emit(bsonenter)
+Butcher's son enters
+
+Son: Komban uncle! Komban uncle!
+You: What's wrong?
+Son: Dad got jumped by that bhai bastard's friends when he was walking home last night. They have beaten him up severely. 
+You: What! Why!?
+Son: They think he mixed some meat in the Bhai's food when Thampuran came over for lunch. Just because Dad and the Bhai didn't see eye to eye!
+You: He wouldn't do that!
+son: He did no such thing uncle!
+- Calm him down
+	you: Your priority should be taking care of your dad right now. We will take this up with the police.
+	son: Police?? I didn't think you were such a bad friend to my dad. (leaves)
+- instigate him
+	you: Something has to be done about these rowdies. Coming into our town and beating us up!
+	son: I cannot let this go unavenged. 
+	you: Its not just about your dad now. Today it was your dad, tommorow it can be someone's wife, someone's daughter, someone's mother.
+	son: There has to be some way to stop this, uncle!
+	you: If things continue like this, we might have to leave own town in the hands of these outsiders. 
+	son: I will die before I have to leave my native land.
+	you: There may not be another choice soon. Shops, radios, cinema houses and even our signboards! They have encroached everywhere.
+	son: Well, no more. These illegal immigrants do not belong here.
+	you: what are you gonna do about it? 
+	son: I dont know uncle. But my blood is boiling...
+	- Push him further
+		you: the future of our town is in the hands of you youngsters. If you will let us be pushed around like this, soon this won't be our town anymore.
+		son: You'll see my dead body before you see this day! God help us.
+		you: God helps those, who help themselves mone.
+		son: Words of gold! I have to take charge. Let me rally around my friends.
+
+	- Talk reasonably
+		You: We shouldn't be talking about this when you're so emotionally charged. After you calm down we can decide our next steps.
+		Son: Calm down? How can I calm down when my poor father has been assaulted for no fault of his?
+		Son: I thought you'd support me.. turns out you don't have a spine.
+
+do emit(bsonexit)
+
+=> END
+
+~ policescene
+
+Riots have broken out in Mareechikoor after a gang of local youths got into a brawl with a group of migrants at a toddy shop. Fighting broke out and spread across town. The toddy shop, as well as the other grocery store, was burnt down. So far, 2 deaths and twenty-five injuries have been reported. The next afternoon, you were summoned to the police station.
+
+=> END
+
+
+~ ENDING1
+
+do emit(plcenter)
+
+officer: Are you aware of what happened last night?
+you: Yes
+officer: Rahula Das, the owner of the new supermarket, was crippled for life in the riots and his shop destroyed. 
+You: ...
+offier: Out of despair he took his own life today morning.
+You: ...
+officer: The butcher's son succumbed to his injuries last night. He was cut badly by a sickle.
+You:...
+Officer: Based on the testimonial of the concerned persons, we have reason to believe that you instigated the riots.
+
+	-Speak up
+	you: I haven't killed anyone.
+	Officer: Your words led to the first major civil unrest in the region since the British era.
+	Officer: you will be charged with incitement and hate speech.
+
+	-Stay Silent
+	You: ...	
+	Officer: Your words led to the first major civil unrest in the region since the British era.
+	Officer: you will be charged with incitement and hate speech.
+
+do emit(plcexit)
+
+=> END
+
+~ interaction14
+do emit(thampuranenter)
+Thampuran: Hey Komba, can I get a small cake? Make sure it's eggless.
+- Give without comment
+	=>(look into inventory and give)
+	Thampuran: Yep, it says eggless here. Thanks!
+
+- "Eggless?"
+	You: You don't need to mention it! I know you're vegetarian.
+	Thampuran: I know, but you can't be too careful these days.
+	You: Did something happen to you?
+	Thampuran: I mustn't say..
+
+	- Drop it
+		You: Alright then... anything else?
+		Thampuran: No, this will do. I'll see you later!
+
+	- Dig further
+		You: Come on, you know I won't tell anyone. Besides, if something is bothering you, you should get it off your chest.
+		Thampuran: Hmm..
+		Thampuran: You know, I'm having some doubts about the other shopowner.
+		Thampuran: He'd called me to his home for lunch the other day. It was a great meal, until I added the dal to my rice..
+		You: What happened?
+		Thampuran: I felt a strange taste and texture, and realised that there were small chunks of meat in the dal!
+		You: Maybe he didn't know you're vegetarian?
+		Thampuran: I'd told him specifically that I was when he invited me.
+		You: He couldn't have done it on purpose?
+		Thampuran: I don't think so.. he seemed as surprised as I was when I confronted him about it.
+		You: Maybe he accidentally served you a dish which he was going to eat?
+		Thampuran: No, he was eating the same vegetarian dishes as I was. 
+		You: Well, you can never tell what these people are thinking.
+		Thampuran: I don't like judging people's character..
+		You: You shouldn't judge him! Just consider all the facts and decide what to believe from there.
+		You: You look after the welfare of everyone in this town, you should make sure no one faces any trouble.
+		You: Even if that means you have to keep an eye on certain people.
+		Thampuran: Mhmm...
+		Thampuran: Oh, look at the time! I better get going.
+do emit(thampuranexit)
+=> END
+
+
+~ interaction15
+do emit(thampuranenter)
+Thampuran: Hey Komba.. did I just hear her say Malu's name?
+- Yes
+	You: Yeah.. we were just discussing her education.
+	Thampuran: What exactly was she saying?
+	- Tell him
+		You: Apparently there's a rumour going around that your daughter has been seeing a lot of that bhai. 
+		Thampuran: ...
+		You: They're saying that he's taking advantage of your friendliness toward him to visit her a lot..
+		Thampuran: He's a good conversationalist, he has so many good stories from his life. Malu and I both love listening to 			him.
+		You: I'm sure that's the case! He must be coming to your house when you're not around, just to tell her stories.
+		Thampuran: ...
+		You: Someone as.. strong-minded as Malu would sure never entertain any wrong ideas.
+		Thampuran: QUIET!
+		Thamuran: Sorry.. it's just..
+		You: I know, you're worried that that bhai has trapped your daughter!
+		You: You shouldn't feel so bad about it.. young people do get misguided easily. 
+		You: I don't like to say this.. but you should be treating the disease rather than the symptom.
+		Thampuran: You can't mean..!
+		You: Malu is a sweet girl, who's just being strung along. Besides, how can you think of doing anything to your daughter!
+		You: Rather, you should root out the one who is pushing her down a wrong path.
+		Thampuran: I'm not so sure about this..
+		You: Think about it! Would you prefer Malu to work a good job and marry an intelligent, caring man in Bangalore, or for		        her to be pumping out children in a hut in some hellhole of a state that's a hundred years behind ours?
+		You: Anyway, I'm sure you know how to take care of your child the best. Did you want anything?
+		Thampuran: ...
+		Thampuran: One chikki please.
+		Give him a chikki
+		if ((item1given == false) and (item2given == false) and (item3given == false) and (item4given == false) and (item5given == false) and (item6given == true)):
+			Thampuran: Thanks!
+			set item1given = false
+			set item2given = false
+			set item3given = false
+			set item4given = false
+			set item5given = false
+			set item6given = false
+			set num_cust += 1
+		else:
+			Thampuran: See you later.
+	- Evade the question
+		You: Nothing really.. I was just discussing college education because my Unni has to go soon.
+		Thampuran: Is that really all?
+		You: You don't believe me? Why are you pressing so hard?
+		Thampuran: You're right.. I'm sorry. It's just..
+		- Ask him what's wrong
+			You: Just what?
+			Thampuran: I've been hearing rumours around town.. they're saying that the other shopkeeper has been making... inappropriate advances on my Malu.
+			Thampuran: And worse...
+			Thampuran: That she doesn't turn them down.
+			You: That can't be! Someone as.. strong-minded as Malu is would sure never entertain any wrong ideas.
+			Thampuran: That's what I'm afraid of.. you know Malu has always been rebellious.
+			You: Will you talk to him about this?
+			Thampuran: What would I say?
+			You: Speak to him calmly, and if that doesn't work, just use the only language which his people understand.
+			Thampuran: He speaks Malayalam..
+			You: You know what I mean.
+			Thampuran: I'm not so sure about this..
+			You: Think about it! Would you prefer Malu to work a good job and marry an intelligent, caring man in Bangalore, or for her to be pumping out children in a hut in some hellhole of a state that's a hundred years behind ours?
+			You: Anyway, I'm sure you know how to take care of your child the best. Did you want anything?
+			Thampuran: ...
+			Thampuran: One chikki please.
+			Give him a chikki
+			if ((item1given == false) and (item2given == false) and (item3given == false) and (item4given == false) and (item5given == false) and (item6given == true)):
+				Thampuran: Thanks!
+				set item1given = false
+				set item2given = false
+				set item3given = false
+				set item4given = false
+				set item5given = false
+				set item6given = false
+				set num_cust += 1
+			else:
+				Thampuran: See you later.
+
+		- End the conversation
+			You: Don't worry, I'm sure it's nothing. Did you need to buy anything?
+			Thampuran: Just a chikki, please.
+			Give him a chikki
+			if ((item1given == false) and (item2given == false) and (item3given == false) and (item4given == false) and (item5given == false) and (item6given == true)):
+				Thampuran: Thanks!
+				set item1given = false
+				set item2given = false
+				set item3given = false
+				set item4given = false
+				set item5given = false
+				set item6given = false
+				set num_cust += 1
+			else:	
+				Thampuran: See you later.
+
+- No
+	Thampuran: Come on, I heard it clearly.
+	You: You must have misheard.
+	Thampuran: tell me, man!
+	You: You don't believe me? Why are you pressing so hard?
+	Thampuran: You're right.. I'm sorry. It's just..
+	- Ask him what's wrong
+		You: Just what?
+		Thampuran: I've been hearing rumours around town.. they're saying that the other shopkeeper has been making.. 				inappropriate advances on my Malu.
+		Thampuran: And worse...
+		Thampuran: That she doesn't turn them down.
+		You: That can't be! Someone as.. strong-minded as Malu is would sure never entertain any wrong ideas.
+		Thampuran: That's what I'm afraid of.. you know Malu has always been rebellious.
+		You: Will you talk to him about this?
+		Thampuran: What would I say?
+		You: Speak to him calmly, and if that doesn't work, just use the only language which his people understand.
+		Thampuran: He speaks Malayalam..
+		You: You know what I mean.
+		Thampuran: I'm not so sure about this..
+		You: Think about it! Would you prefer Malu to work a good job and marry an intelligent, caring man in Bangalore, 			or for her to be pumping out children in a hut in some hellhole of a state that's a hundred years behind ours?
+		You: Anyway, I'm sure you know how to take care of your child the best.
+		Thampuran: He wouldn't do anything wrong..
+		You: Are you saying this to convince me, or yourself? Do you want to find out what he might be capable of, or nip it in the bud?
+		Thampuran: How dare people spread rumours about my daughter's life!
+		You: Are you sure they're rumours?
+		Thampuran: Don't tell me you believe them..!
+		You: If everyone believes them but you, do you think they're all wrong or that you're right?
+		You: You don't need to convince me of anything. The facts are plain to everyone.
+		You: It's your choice if you want to act or not.
+		Thampuran: ...
+		Thampuran: I suppose you're right..
+		You: It's not just about Malu! Tomorrow it may be someone else's daughter.
+		You: You are the one who looks after the village. Besides, I thought you could make... tough decisions when needed.
+		You: If not, I don't know who else can protect us.
+		Thampuran: I'll do what I have to.
+		You: Did you want anything?
+		Thampuran: One chikki please.
+	- End the conversation
+		You: Don't worry, I'm sure it's nothing. Did you need to buy anything?
+		Thampuran: Just a chikki, please.
+	if ((item1given == false) and (item2given == false) and (item3given == false) and (item4given == false) and (item5given == false) and (item6given == true)):
+		Thampuran: See you later.
+		set item1given = false
+		set item2given = false
+		set item3given = false
+		set item4given = false
+		set item5given = false
+		set item6given = false
+		set num_cust += 1
+	else:
+		Thampuran: ...
+do emit(thampuranexit)
+=> END
+
+~ ending_2
+
+Dialog: Unusually for a normal weekday, there's a large crowd milling around the town's junction.
+Dialog: You hear snippets of conversation.
+
+Passerby 1: ...can't believe Thampuran had it in him...
+Passerby 2: ...shop's being repossessed...
+Passerby 3: ...the cremation is in his hometown, I think...
+Passerby 2: ...was a helpful man, even if he was an outsider...
+Passerby 4: ...I'd have done the same as him, if I were in the same state...
+Passerby 1: ...paralysed for life, no way to live...
+
+*FADE TO BLACK*
+
+"Tis here, but yet confused. Knavery's plain face is never seen till used. " Iago, 2.1.1111-2
+
+=> END
+		
+~ ending_3
+
+if (total_savings > 500):
+	Dialog: Life goes on as usual in Mareechikoor.
+	Dialog: Much like Doothan and Thampuran predicted, a lot of the traffic to the new shop was because of its novelty.
+	Dialog: After a few months, your business stabilised. You also started to stock new products there.
+	Dialog: Unni went off to college in Kochi. You miss him, but you're happy he's studying in a good place.
+	Dialog: Sometimes you wonder what might have happened if you gave in to the dark thoughts you had about your rival..
+else:
+	Dialogue: As it came time to pay the fees, you realised that you were too short to pay for Unni's college. 
+	DIalogue: He came to work with you at the shop, but business has been poor and every so often you are under fear of shutting down
+	Dialogue: A few years later, Unni leaves home to go work and you mainly stay afloat from the money he sends back every month
+	Dialogue: Sometimes you wonder what would have happened if you competed more agressively...
+
+*FADE TO BLACK*
+
+=> END

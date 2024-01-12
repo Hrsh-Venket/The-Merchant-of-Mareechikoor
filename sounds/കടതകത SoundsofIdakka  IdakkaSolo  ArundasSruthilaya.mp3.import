@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bo52bwq46ch84"
+path="res://.godot/imported/കടതകത SoundsofIdakka  IdakkaSolo  ArundasSruthilaya.mp3-e6b84c520a06a463795bc98611b6e4eb.mp3str"
+
+[deps]
+
+source_file="res://sounds/കടതകത SoundsofIdakka  IdakkaSolo  ArundasSruthilaya.mp3"
+dest_files=["res://.godot/imported/കടതകത SoundsofIdakka  IdakkaSolo  ArundasSruthilaya.mp3-e6b84c520a06a463795bc98611b6e4eb.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

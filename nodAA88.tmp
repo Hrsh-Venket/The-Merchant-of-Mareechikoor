@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=3 uid="uid://dcy4e3hnrycwj"]
+
+[ext_resource type="Texture2D" uid="uid://c5m8ocp7wyilv" path="res://character_icons/auntie-1.png" id="3_a2tlb"]
+[ext_resource type="Script" path="res://Auntie-1.gd" id="3_es0v6"]
+
+[sub_resource type="GDScript" id="GDScript_4cnxw"]
+script/source = "extends AnimatedSprite2D
+
+var speed = 200
+var target = Vector2(400, 300) # Target position
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	# Connect the \"aunty1enter\" signal to the _on_aunty1enter function
+#	connect(\"aunty1enter\", self, \"_on_aunty1enter\")
+
+# Called when the \"aunty1enter\" signal is emitted
+func _on_aunty1enter():
+	# Start moving the sprite when the signal is received
+	target = Vector2(400, 300) # Set the target position
+"
+
+[node name="Node2D" type="Node2D"]
+script = SubResource("GDScript_4cnxw")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 60.0
+
+[node name="Label" type="Label" parent="."]
+visible = false
+offset_left = 519.0
+offset_top = 214.0
+offset_right = 566.0
+offset_bottom = 240.0
+scale = Vector2(4, 4)
+text = "AHHH"
+
+[node name="Auntie-1" type="Sprite2D" parent="."]
+position = Vector2(105, 369)
+scale = Vector2(1.12695, 1.08594)
+texture = ExtResource("3_a2tlb")
+script = ExtResource("3_es0v6")

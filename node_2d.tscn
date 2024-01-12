@@ -1,0 +1,299 @@
+[gd_scene load_steps=41 format=3 uid="uid://dcy4e3hnrycwj"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_qby8v"]
+[ext_resource type="Texture2D" uid="uid://bnlgevr3vdqgy" path="res://character_icons/rich-influential-man.png" id="3_1mj2n"]
+[ext_resource type="Texture2D" uid="uid://c5m8ocp7wyilv" path="res://character_icons/auntie-1.png" id="3_a2tlb"]
+[ext_resource type="Texture2D" uid="uid://txkkidrbdyww" path="res://character_icons/shopkeeper-option-1.png" id="4_clrfr"]
+[ext_resource type="Script" path="res://Node2D.gd" id="5_o7j8k"]
+[ext_resource type="Texture2D" uid="uid://b7c1oqwle28g8" path="res://item_icons/bananas.png" id="6_4nd3w"]
+[ext_resource type="Texture2D" uid="uid://ce6ik3og48dp5" path="res://item_icons/cigarettes.png" id="7_3w4mf"]
+[ext_resource type="Texture2D" uid="uid://bmtvr170l2qfh" path="res://item_icons/coconut oil.png" id="8_1tjd1"]
+[ext_resource type="Texture2D" uid="uid://c5k2hu1u7x1gi" path="res://item_icons/rice.png" id="9_iogkk"]
+[ext_resource type="Texture2D" uid="uid://4uhh5p0inu57" path="res://item_icons/bubblegum.png" id="10_pdlhm"]
+[ext_resource type="Texture2D" uid="uid://inmk0wcgpabh" path="res://item_icons/chikki.png" id="11_r3v6p"]
+[ext_resource type="Texture2D" uid="uid://bs3qudf60ce1w" path="res://backgrounds/morning_bg.png" id="11_rpjqu"]
+[ext_resource type="AudioStream" uid="uid://bsle6j2asmqgd" path="res://sounds/Sounds of the Evening in a Small Hill Town. Kerala. South India.mp3" id="13_h2rds"]
+[ext_resource type="AudioStream" uid="uid://bo52bwq46ch84" path="res://sounds/കടതകത SoundsofIdakka  IdakkaSolo  ArundasSruthilaya.mp3" id="14_a0nvo"]
+[ext_resource type="Texture2D" uid="uid://7743gyb1cptq" path="res://backgrounds/titlepage.png" id="15_f4p27"]
+[ext_resource type="Texture2D" uid="uid://n1jsbegr3i2h" path="res://backgrounds/evening_bg.png" id="16_w5jw1"]
+[ext_resource type="Texture2D" uid="uid://bieymceq60l5p" path="res://backgrounds/night_bg.png" id="17_3x0e6"]
+[ext_resource type="Texture2D" uid="uid://8887i4jkgvkv" path="res://character_icons/generic-1.png" id="18_ss5ab"]
+[ext_resource type="Script" path="res://Generic-1.gd" id="19_lygya"]
+[ext_resource type="Texture2D" uid="uid://crkakxs3yoqr1" path="res://character_icons/generic-2.png" id="20_yar0o"]
+[ext_resource type="Script" path="res://Generic-2.gd" id="21_7mfij"]
+[ext_resource type="Texture2D" uid="uid://bvqp83xpjw1t0" path="res://character_icons/generic-3.png" id="22_fdhwa"]
+[ext_resource type="Texture2D" uid="uid://dir77ao76c1l1" path="res://character_icons/kid-1.png" id="23_pc40i"]
+[ext_resource type="Script" path="res://Kid-1.gd" id="24_81bye"]
+[ext_resource type="Texture2D" uid="uid://irb50sasq62a" path="res://character_icons/malluman.png" id="25_48oue"]
+[ext_resource type="Script" path="res://dhootan.gd" id="26_sc5ti"]
+[ext_resource type="Texture2D" uid="uid://vnx32ipv6io0" path="res://character_icons/auntie-2.png" id="27_kp5vr"]
+[ext_resource type="Script" path="res://Auntie-2.gd" id="28_26clg"]
+[ext_resource type="Texture2D" uid="uid://b71r7vr6qg7j1" path="res://character_icons/wife.png" id="29_6fhcq"]
+[ext_resource type="Script" path="res://Wife.gd" id="30_7dohg"]
+[ext_resource type="Texture2D" uid="uid://7qcduqvvhka1" path="res://character_icons/North-Indian-Customer.png" id="31_grmkb"]
+[ext_resource type="Script" path="res://North-indian-customer.gd" id="32_poac1"]
+[ext_resource type="Texture2D" uid="uid://d3qy3y6brc61i" path="res://character_icons/shopkeeper-option-2.png" id="33_d2ypr"]
+[ext_resource type="Script" path="res://Shopkeeper-option-2.gd" id="34_gl675"]
+[ext_resource type="Script" path="res://butcher_son.gd" id="36_hj2ln"]
+[ext_resource type="Texture2D" uid="uid://cbnfbvwgav6vu" path="res://character_icons/Police-officer.png" id="36_ytgt6"]
+[ext_resource type="Script" path="res://Police-officer.gd" id="37_5dtb7"]
+
+[sub_resource type="GDScript" id="GDScript_d1llw"]
+script/source = "extends Sprite2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	self.global_position = Vector2(-550, 300)
+	Signals.aunty1enter.connect(_on_aunty1enter)
+	Signals.aunty1exit.connect(_on_aunty1exit)
+
+# Called when the \"aunty1enter\" signal is emitted
+func _on_aunty1enter():
+	self.global_position = Vector2(550, 300)  # Set the position to (100, 100)
+
+func _on_aunty1exit():
+	self.global_position = Vector2(-550, 300)
+"
+
+[sub_resource type="GDScript" id="GDScript_5enav"]
+script/source = "extends Sprite2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	self.global_position = Vector2(-550, 300)
+	Signals.thampuranenter.connect(_on_thampuranenter)
+	Signals.thampuranexit.connect(_on_thampuranexit)
+
+# Called when the \"aunty1enter\" signal is emitted
+func _on_thampuranenter():
+	self.global_position = Vector2(550, 300)  # Set the position to (100, 100)
+
+func _on_thampuranexit():
+	self.global_position = Vector2(1600, 300)
+"
+
+[sub_resource type="GDScript" id="GDScript_35hwx"]
+script/source = "extends Sprite2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	self.global_position = Vector2(-550, 300)
+	Signals.butcherenter.connect(_on_butcherenter)
+	Signals.butcherexit.connect(_on_butcherexit)
+
+# Called when the \"aunty1enter\" signal is emitted
+func _on_butcherenter():
+	self.global_position = Vector2(550, 300)  # Set the position to (100, 100)
+
+func _on_butcherexit():
+	self.global_position = Vector2(-550, 300)
+"
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_qby8v")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 120.0
+
+[node name="Auntie-1" type="Sprite2D" parent="."]
+position = Vector2(-451, 432)
+scale = Vector2(0.975584, 0.947267)
+texture = ExtResource("3_a2tlb")
+script = SubResource("GDScript_d1llw")
+
+[node name="Rich-influential-man" type="Sprite2D" parent="."]
+position = Vector2(1451, 290)
+scale = Vector2(1.14844, 1.25977)
+texture = ExtResource("3_1mj2n")
+script = SubResource("GDScript_5enav")
+
+[node name="Butcher" type="Sprite2D" parent="."]
+position = Vector2(1372, 579)
+scale = Vector2(1.42578, 1.35547)
+texture = ExtResource("4_clrfr")
+script = SubResource("GDScript_35hwx")
+
+[node name="Node2D" type="Node2D" parent="."]
+script = ExtResource("5_o7j8k")
+
+[node name="item1" type="TextureButton" parent="Node2D"]
+z_index = 2
+offset_left = 1072.0
+offset_top = 562.0
+offset_right = 1200.0
+offset_bottom = 690.0
+scale = Vector2(0.125, 0.125)
+texture_normal = ExtResource("6_4nd3w")
+metadata/_edit_use_anchors_ = true
+
+[node name="item2" type="TextureButton" parent="Node2D"]
+z_index = 2
+offset_left = 997.0
+offset_top = 562.0
+offset_right = 1125.0
+offset_bottom = 690.0
+scale = Vector2(0.125, 0.125)
+texture_normal = ExtResource("7_3w4mf")
+metadata/_edit_use_anchors_ = true
+
+[node name="item3" type="TextureButton" parent="Node2D"]
+z_index = 2
+offset_left = 923.0
+offset_top = 563.0
+offset_right = 1051.0
+offset_bottom = 691.0
+scale = Vector2(0.125, 0.125)
+texture_normal = ExtResource("8_1tjd1")
+metadata/_edit_use_anchors_ = true
+
+[node name="item4" type="TextureButton" parent="Node2D"]
+z_index = 2
+offset_left = 1070.0
+offset_top = 486.0
+offset_right = 1198.0
+offset_bottom = 614.0
+scale = Vector2(0.125, 0.125)
+texture_normal = ExtResource("9_iogkk")
+metadata/_edit_use_anchors_ = true
+
+[node name="item5" type="TextureButton" parent="Node2D"]
+z_index = 2
+offset_left = 996.0
+offset_top = 486.0
+offset_right = 1124.0
+offset_bottom = 614.0
+scale = Vector2(0.125, 0.125)
+texture_normal = ExtResource("10_pdlhm")
+metadata/_edit_use_anchors_ = true
+
+[node name="item6" type="TextureButton" parent="Node2D"]
+z_index = 2
+offset_left = 921.0
+offset_top = 487.0
+offset_right = 1049.0
+offset_bottom = 615.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("11_r3v6p")
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="Node2D"]
+visibility_layer = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 1137.0
+offset_bottom = 431.0
+metadata/_edit_use_anchors_ = true
+
+[node name="MorningBg" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(586, 263)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("11_rpjqu")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_h2rds")
+volume_db = -2.417
+
+[node name="title audio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_a0nvo")
+autoplay = true
+
+[node name="Titlepage" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(589, 261)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("15_f4p27")
+
+[node name="EveningBg" type="Sprite2D" parent="."]
+visible = false
+show_behind_parent = true
+position = Vector2(586, 263)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("16_w5jw1")
+
+[node name="NightBg" type="Sprite2D" parent="."]
+visible = false
+show_behind_parent = true
+position = Vector2(586, 263)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("17_3x0e6")
+
+[node name="Generic-1" type="Sprite2D" parent="."]
+position = Vector2(-326, 420)
+texture = ExtResource("18_ss5ab")
+script = ExtResource("19_lygya")
+
+[node name="Generic-2" type="Sprite2D" parent="."]
+position = Vector2(-656, 424)
+texture = ExtResource("20_yar0o")
+script = ExtResource("21_7mfij")
+
+[node name="butcher_son" type="Sprite2D" parent="."]
+position = Vector2(-672, 247)
+texture = ExtResource("22_fdhwa")
+script = ExtResource("36_hj2ln")
+
+[node name="Kid-1" type="Sprite2D" parent="."]
+position = Vector2(-820.75, 474)
+scale = Vector2(0.838867, 0.828125)
+texture = ExtResource("23_pc40i")
+script = ExtResource("24_81bye")
+
+[node name="PixelCharacterFullBodySpritesD38Cfb62" type="Sprite2D" parent="."]
+position = Vector2(1873, 323)
+scale = Vector2(0.87037, 0.838961)
+texture = ExtResource("25_48oue")
+script = ExtResource("26_sc5ti")
+
+[node name="Auntie-2" type="Sprite2D" parent="."]
+position = Vector2(-487, 573)
+scale = Vector2(1, 1.0957)
+texture = ExtResource("27_kp5vr")
+script = ExtResource("28_26clg")
+
+[node name="Wife" type="Sprite2D" parent="."]
+position = Vector2(1599, 313)
+texture = ExtResource("29_6fhcq")
+script = ExtResource("30_7dohg")
+
+[node name="North-indian-customer" type="Sprite2D" parent="."]
+position = Vector2(1732, 293)
+scale = Vector2(1.03125, 1.22656)
+texture = ExtResource("31_grmkb")
+script = ExtResource("32_poac1")
+
+[node name="Shopkeeper-option-2" type="Sprite2D" parent="."]
+position = Vector2(-198, 395)
+texture = ExtResource("33_d2ypr")
+script = ExtResource("34_gl675")
+
+[node name="Timer2" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
+
+[node name="Police-officer" type="Sprite2D" parent="."]
+position = Vector2(-959, 367)
+scale = Vector2(1.19727, 1.38867)
+texture = ExtResource("36_ytgt6")
+script = ExtResource("37_5dtb7")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="button_down" from="Node2D/item1" to="Node2D" method="_on_item_1_button_down"]
+[connection signal="button_up" from="Node2D/item1" to="Node2D" method="_on_item_1_button_up"]
+[connection signal="button_down" from="Node2D/item2" to="Node2D" method="_on_item_2_button_down"]
+[connection signal="button_up" from="Node2D/item2" to="Node2D" method="_on_item_2_button_up"]
+[connection signal="button_down" from="Node2D/item3" to="Node2D" method="_on_item_3_button_down"]
+[connection signal="button_up" from="Node2D/item3" to="Node2D" method="_on_item_3_button_up"]
+[connection signal="button_down" from="Node2D/item4" to="Node2D" method="_on_item_4_button_down"]
+[connection signal="button_up" from="Node2D/item4" to="Node2D" method="_on_item_4_button_up"]
+[connection signal="button_down" from="Node2D/item5" to="Node2D" method="_on_item_5_button_down"]
+[connection signal="button_up" from="Node2D/item5" to="Node2D" method="_on_item_5_button_up"]
+[connection signal="button_down" from="Node2D/item6" to="Node2D" method="_on_item_6_button_down"]
+[connection signal="button_up" from="Node2D/item6" to="Node2D" method="_on_item_6_button_up"]
+[connection signal="mouse_entered" from="Node2D/ColorRect" to="Node2D" method="_on_color_rect_mouse_entered"]
+[connection signal="mouse_exited" from="Node2D/ColorRect" to="Node2D" method="_on_color_rect_mouse_exited"]
+[connection signal="finished" from="AudioStreamPlayer2D" to="." method="_on_audio_stream_player_2d_finished"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
